@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Drone Mapping & Aerial Intelligence Workshop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 15px;
+            color: #1e293b;
+        }
+        
+        .poster {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .left-header {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+        
+        .org-info {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+        
+        .title-section {
+            max-width: 600px;
+        }
+        
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+        
+        .right-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .drone-visual {
+            width: 140px;
+            height: 140px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .drone-visual svg {
+            width: 80px;
+            height: 80px;
+            fill: white;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            padding: 50px 30px;
+        }
+        
+        .section-title {
+            color: #0f766e;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+            border-radius: 2px;
+        }
+        
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .learning-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(15, 118, 110, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .learning-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+        }
+        
+        .learning-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .card-description {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .course-format {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 2px solid rgba(15, 118, 110, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-format::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .format-title {
+            color: #0f766e;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .format-card {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(15, 118, 110, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .format-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .format-card .main-text {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .format-card .sub-text {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .highlight-section {
+            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+            color: white;
+            padding: 40px 30px;
+            margin: 0 -30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
+        }
+        
+        .highlight-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .expert-text {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .date-highlight {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            padding: 25px 30px;
+            border-radius: 16px;
+            font-size: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        
+        .schedule-section {
+            margin: 50px 0;
+        }
+        
+        .schedule-card {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(15, 118, 110, 0.1);
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: white;
+            padding: 20px 25px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .day-content {
+            padding: 25px;
+        }
+        
+        .time-slot {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .time-slot:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .time {
+            font-weight: 600;
+            color: #0d9488;
+            min-width: 90px;
+            font-size: 14px;
+            background: #f0fdfa;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .activity {
+            flex: 1;
+            color: #334155;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .fees-section {
+            margin: 50px 0;
+        }
+        
+        .fees-table {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(15, 118, 110, 0.1);
+        }
+        
+        .fees-table th {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: white;
+            padding: 20px 18px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 15px;
+        }
+        
+        .fees-table td {
+            padding: 18px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .fees-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .fees-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .note-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .note-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .note-text {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 35px;
+            border-radius: 16px;
+            margin-top: 30px;
+            border: 1px solid rgba(15, 118, 110, 0.1);
+        }
+        
+        .contact-title {
+            color: #0f766e;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            font-weight: 500;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .organization {
+            text-align: center;
+            margin-top: 40px;
+            padding: 35px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 16px;
+            border: 2px solid rgba(15, 118, 110, 0.1);
+        }
+        
+        .org-title {
+            font-weight: 600;
+            color: #0f766e;
+            margin-bottom: 10px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+        
+        .org-name {
+            color: #0d9488;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+        
+        .qr-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .qr-container {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(15, 118, 110, 0.1);
+        }
+        
+        .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            margin: 0 auto 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .qr-link {
+            font-size: 14px;
+            color: #0d9488;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .qr-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .poster {
+                border-radius: 16px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .title {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .highlight-section {
+                margin: 0 -20px;
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .format-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fees-table th,
+            .fees-table td {
+                padding: 12px;
+                font-size: 13px;
+            }
+            
+            .time-slot {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .time {
+                min-width: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 28px;
+            }
+            
+            .expert-text {
+                font-size: 20px;
+            }
+            
+            .date-highlight {
+                font-size: 18px;
+                padding: 20px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="header-content">
+                <div class="left-header">
+                    <div class="logo-section">
+                        <div class="logo">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="org-info">CTBC India<br>September 2025</div>
+                    </div>
+                    <div class="title-section">
+                        <div class="title">Advanced Drone Mapping<br>& Aerial Intelligence</div>
+                        <div class="subtitle">Professional Certification Workshop</div>
+                    </div>
+                </div>
+                <div class="right-header">
+                    <div class="drone-visual">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5.5 7L7 6.5l2 7L7 14l-1.5-.5L5.5 7zM11 4l2 1.5L11 7L9 5.5L11 4zM18.5 7L17 6.5l-2 7L17 14l1.5-.5L18.5 7zM11 17l2 1.5L11 20L9 18.5L11 17z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="learning-section">
+                <div class="section-title">Transform Your Career with Cutting-Edge Skills</div>
+                <div class="learning-grid">
+                    <div class="learning-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">Mission Planning & Flight Simulation</div>
+                        <div class="card-description">Master advanced UAV data collection techniques for maximum accuracy. Learn cutting-edge flight regulations, comprehensive safety protocols, and industry-standard mission planning software.</div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 11H7l3-7 3 7h-2l2 7-4-7z"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">3D Mapping & Orthomosaics</div>
+                        <div class="card-description">Transform aerial imagery into powerful, actionable insights. Create professional-grade high-resolution maps, detailed 3D models, and precision orthomosaics from drone-captured data.</div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">Advanced Software Mastery</div>
+                        <div class="card-description">Gain hands-on expertise with professional multi-rotor drones and industry-leading photogrammetry software. Master the complete workflow from data capture to final deliverables.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="course-format">
+                <div class="format-title">Comprehensive 6-Day Hybrid Learning Experience</div>
+                <div class="format-grid">
+                    <div class="format-card">
+                        <div class="main-text">3 Days Online</div>
+                        <div class="sub-text">Interactive Virtual Sessions</div>
+                    </div>
+                    <div class="format-card">
+                        <div class="main-text">3 Days Hands-On</div>
+                        <div class="sub-text">Practical Fieldwork Training</div>
+                    </div>
+                    <div class="format-card">
+                        <div class="main-text">Professional Certification</div>
+                        <div class="sub-text">Industry-Recognized Credentials</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight-section">
+            <div class="highlight-content">
+                <div class="expert-text">Expert-Led Professional Training Program</div>
+                <div class="date-highlight">
+                    September 17-22, 2025<br>
+                    <small style="font-size: 16px; font-weight: 500;">SECURE YOUR SPOT TODAY</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="schedule-section">
+                <div class="section-title">Comprehensive Training Schedule</div>
+                
+                <div class="schedule-card">
+                    <div class="day-header">Days 1-3: Foundation Online Sessions (Dates To Be Announced)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">05:00 PM</div>
+                            <div class="activity">Professional Certificate Distribution & Graduation Ceremony</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note-section">
+                <div class="note-title">Important Program Information:</div>
+                <div class="note-text">
+                    • Welcome breakfast on inaugural day available on request (additional payment basis)<br>
+                    • *Professional UAV flight exercises conducted after successful simulator completion<br>
+                    • All scheduled meals included during workshop days unless otherwise specified<br>
+                    • Industry-standard equipment and software provided for hands-on training
+                </div>
+            </div>
+            
+            <div class="fees-section">
+                <div class="section-title">Investment in Your Professional Future</div>
+                <table class="fees-table">
+                    <thead>
+                        <tr>
+                            <th>Participant Category</th>
+                            <th>National Fee (INR)</th>
+                            <th>International Fee (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Undergraduate & Postgraduate Students</td>
+                            <td>₹6,500</td>
+                            <td>$110</td>
+                        </tr>
+                        <tr>
+                            <td>PhD Scholars & Research Fellows</td>
+                            <td>₹12,000</td>
+                            <td>$250</td>
+                        </tr>
+                        <tr>
+                            <td>Working Professionals & Industry Experts</td>
+                            <td>₹16,000</td>
+                            <td>$350</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="qr-section">
+                <div class="qr-container">
+                    <div class="qr-placeholder">
+                        <div>Scan To Register<br>Instantly</div>
+                    </div>
+                    <a href="https://gisctbci.org/trainings/rpasuav" class="qr-link">gisctbci.org/trainings/rpasuav</a>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <div class="contact-title">Connect With Our Expert Team</div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <span>+91 889131 3468</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <span>+91 701213 4083</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📲</div>
+                        <span>+91 628212 3198</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <span>gis@ctbci.org</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="organization">
+                <div class="org-title">Proudly Organized By</div>
+                <div class="org-name">CENTRE FOR TROPICAL<br>BIODIVERSITY CONSERVATION</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> class="time">TBA</div>
+                            <div class="activity">Introduction to Remote Sensing and Advanced GIS Technologies</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">TBA</div>
+                            <div class="activity">Comprehensive UAV Systems Overview and Technical Specifications</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">TBA</div>
+                            <div class="activity">Mission Planning Fundamentals and Strategic Flight Design</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="day-header">Day 4: Intensive Workshop Launch (September 17, 2025)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">11:00 AM</div>
+                            <div class="activity">Registration & Welcome Ceremony</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">02:00 PM</div>
+                            <div class="activity">Advanced Remote Sensing and GIS Applications</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">03:30 PM</div>
+                            <div class="activity">Networking Break & Refreshments</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">04:00 PM</div>
+                            <div class="activity">Professional UAV Systems Deep Dive</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">06:00 PM</div>
+                            <div class="activity">Day 1 Conclusion & Q&A Session</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="day-header">Day 5: Practical Application Workshop (September 18, 2025)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">09:00 AM</div>
+                            <div class="activity">Strategic Mission Planning and Aviation Regulations</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">10:30 AM</div>
+                            <div class="activity">Coffee Break & Technical Discussion</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">11:00 AM</div>
+                            <div class="activity">Field Operations - Professional UAV Flight Training*</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">12:30 PM</div>
+                            <div class="activity">Lunch & Networking Session</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">01:30 PM</div>
+                            <div class="activity">Advanced Data Download and Aerial Imagery Processing</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">03:00 PM</div>
+                            <div class="activity">Afternoon Break</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">03:30 PM</div>
+                            <div class="activity">Professional Image Processing Workflows</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="day-header">Day 6: Advanced Processing & Certification (September 19, 2025)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">09:00 AM</div>
+                            <div class="activity">Advanced Photogrammetric Processing Principles</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">10:30 AM</div>
+                            <div class="activity">Technical Break & Discussion</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">11:00 AM</div>
+                            <div class="activity">Hands-on Professional Photogrammetric Processing</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">12:30 PM</div>
+                            <div class="activity">Celebration Lunch</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">01:30 PM</div>
+                            <div class="activity">Professional Output Generation - DEMs, Orthophotos & More</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">02:30 PM</div>
+                            <div class="activity">Final Break</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">03:00 PM</div>
+                            <div class="activity">Advanced Data Analysis and Professional Interpretation</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">04:00 PM</div>
+                            <div class="activity">Comprehensive Workshop Summary & Expert Q&A</div>
+                        </div>
+                        <div class="time-slot">
+                            <div
