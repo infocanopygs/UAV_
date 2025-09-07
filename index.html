@@ -17,18 +17,18 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             background: 
-                linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.6) 25%, rgba(240, 147, 251, 0.5) 50%, rgba(102, 126, 234, 0.7) 100%),
+                linear-gradient(135deg, rgba(34, 197, 94, 0.7) 0%, rgba(16, 185, 129, 0.6) 25%, rgba(6, 182, 212, 0.5) 50%, rgba(34, 197, 94, 0.7) 100%),
                 url('bg.png');
             background-size: 400% 400%, cover;
             background-position: 0% 50%, center;
             background-attachment: fixed;
-            animation: gradientFlow 25s ease infinite;
+            animation: tropicalFlow 30s ease infinite;
             padding: 15px;
             color: #1e293b;
             min-height: 100vh;
         }
         
-        @keyframes gradientFlow {
+        @keyframes tropicalFlow {
             0% { background-position: 0% 50%, center; }
             25% { background-position: 100% 50%, center; }
             50% { background-position: 100% 100%, center; }
@@ -52,7 +52,7 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #059669 0%, #0d9488 35%, #0891b2 70%, #22c55e 100%);
             color: white;
             padding: 50px 40px;
             position: relative;
@@ -67,9 +67,9 @@
             right: -30%;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
+            animation: tropicalFloat 10s ease-in-out infinite;
         }
         
         .header::after {
@@ -79,15 +79,15 @@
             left: -20%;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(240, 147, 251, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 12s ease-in-out infinite reverse;
+            animation: tropicalFloat 15s ease-in-out infinite reverse;
         }
         
-        @keyframes float {
+        @keyframes tropicalFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
-            66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+            33% { transform: translateY(-25px) rotate(120deg) scale(1.1); }
+            66% { transform: translateY(15px) rotate(240deg) scale(0.95); }
         }
         
         .header-content {
@@ -169,7 +169,7 @@
             backdrop-filter: blur(15px);
             border: 3px solid rgba(255,255,255,0.3);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            animation: levitate 6s ease-in-out infinite;
+            animation: levitate 7s ease-in-out infinite;
             position: relative;
             overflow: hidden;
         }
@@ -181,8 +181,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: spin 10s linear infinite;
+            background: conic-gradient(from 0deg, transparent, rgba(34, 197, 94, 0.15), transparent);
+            animation: tropicalSpin 12s linear infinite;
         }
         
         .drone-visual img {
@@ -196,10 +196,10 @@
         
         @keyframes levitate {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-18px); }
         }
         
-        @keyframes spin {
+        @keyframes tropicalSpin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
@@ -209,7 +209,7 @@
         }
         
         .section-title {
-            color: #6b46c1;
+            color: #059669;
             font-size: 30px;
             font-weight: 700;
             margin-bottom: 35px;
@@ -224,7 +224,7 @@
             left: 0;
             width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #059669, #0d9488, #0891b2);
             border-radius: 2px;
         }
         
@@ -241,10 +241,10 @@
             border-radius: 24px;
             padding: 40px;
             box-shadow: 
-                0 20px 40px rgba(102, 126, 234, 0.15),
+                0 20px 40px rgba(5, 150, 105, 0.15),
                 0 8px 20px rgba(0, 0, 0, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(34, 197, 94, 0.2);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -257,9 +257,9 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background: linear-gradient(90deg, #059669, #0d9488, #0891b2, #22c55e);
             background-size: 200% 100%;
-            animation: shimmer 3s ease-in-out infinite;
+            animation: tropicalShimmer 4s ease-in-out infinite;
         }
         
         .learning-card::after {
@@ -269,7 +269,7 @@
             right: -50%;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.08) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -278,27 +278,27 @@
             opacity: 1;
         }
         
-        @keyframes shimmer {
+        @keyframes tropicalShimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
         }
         
         .learning-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 30px 60px rgba(5, 150, 105, 0.25);
         }
         
         .card-icon {
             width: 75px;
             height: 75px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #059669, #0d9488);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 25px;
-            animation: pulse 4s ease-in-out infinite;
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
+            animation: tropicalPulse 5s ease-in-out infinite;
+            box-shadow: 0 12px 30px rgba(5, 150, 105, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -310,18 +310,18 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.25), transparent);
             transform: rotate(45deg);
-            animation: shine 3s ease-in-out infinite;
+            animation: tropicalShine 4s ease-in-out infinite;
         }
         
-        @keyframes shine {
+        @keyframes tropicalShine {
             0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
             50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
             100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
         }
         
-        @keyframes pulse {
+        @keyframes tropicalPulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.08); }
         }
@@ -348,14 +348,14 @@
         }
         
         .course-format {
-            background: rgba(255, 239, 248, 0.8);
+            background: rgba(236, 253, 245, 0.8);
             backdrop-filter: blur(15px) saturate(180%);
             border-radius: 24px;
             padding: 45px;
             margin: 50px 0;
-            border: 2px solid rgba(167, 139, 250, 0.3);
+            border: 2px solid rgba(34, 197, 94, 0.3);
             box-shadow: 
-                0 25px 50px rgba(167, 139, 250, 0.15),
+                0 25px 50px rgba(5, 150, 105, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
@@ -368,18 +368,18 @@
             right: -10%;
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
             border-radius: 50%;
-            animation: rotate 20s linear infinite;
+            animation: tropicalRotate 25s linear infinite;
         }
         
-        @keyframes rotate {
+        @keyframes tropicalRotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
         
         .format-title {
-            color: #6b46c1;
+            color: #059669;
             font-size: 26px;
             font-weight: 700;
             margin-bottom: 30px;
@@ -396,13 +396,13 @@
         }
         
         .format-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             color: white;
             padding: 30px 25px;
             border-radius: 16px;
             text-align: center;
             font-weight: 600;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
             transition: transform 0.3s ease;
         }
         
@@ -421,7 +421,7 @@
         }
         
         .highlight-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             color: white;
             padding: 45px 40px;
             margin: 50px 0;
@@ -438,8 +438,8 @@
             left: -30%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
-            animation: float 10s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: tropicalFloat 12s ease-in-out infinite;
         }
         
         .highlight-content {
@@ -455,13 +455,13 @@
         }
         
         .date-highlight {
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
             padding: 30px 35px;
             border-radius: 18px;
             font-size: 22px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
             margin: 25px auto;
             max-width: 450px;
         }
@@ -477,14 +477,14 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 
-                0 15px 35px rgba(102, 126, 234, 0.12),
+                0 15px 35px rgba(5, 150, 105, 0.12),
                 0 5px 15px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
         
         .day-header {
-            background: linear-gradient(135deg, #6b46c1 0%, #667eea 100%);
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             color: white;
             padding: 25px 30px;
             font-weight: 600;
@@ -511,13 +511,14 @@
         
         .time {
             font-weight: 600;
-            color: #6b46c1;
+            color: #059669;
             min-width: 100px;
             font-size: 15px;
-            background: #f3e8ff;
+            background: #ecfdf5;
             padding: 8px 15px;
             border-radius: 10px;
             text-align: center;
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
         
         .activity {
@@ -538,14 +539,14 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 
-                0 20px 40px rgba(102, 126, 234, 0.12),
+                0 20px 40px rgba(5, 150, 105, 0.12),
                 0 8px 20px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
         
         .fees-table th {
-            background: linear-gradient(135deg, #6b46c1 0%, #667eea 100%);
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             color: white;
             padding: 25px 20px;
             font-weight: 600;
@@ -561,7 +562,7 @@
         }
         
         .fees-table tr:nth-child(even) {
-            background: rgba(248, 250, 252, 0.8);
+            background: rgba(236, 253, 245, 0.5);
         }
         
         .fees-table tr:last-child td {
@@ -569,7 +570,7 @@
         }
         
         .note-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
             border: 2px solid #f59e0b;
             border-radius: 18px;
             padding: 30px;
@@ -591,14 +592,14 @@
         }
         
         .contact-section {
-            background: rgba(250, 245, 255, 0.85);
+            background: rgba(236, 253, 245, 0.85);
             backdrop-filter: blur(20px) saturate(180%);
             padding: 45px;
             border-radius: 24px;
             margin-top: 40px;
-            border: 2px solid rgba(167, 139, 250, 0.3);
+            border: 2px solid rgba(34, 197, 94, 0.3);
             box-shadow: 
-                0 25px 50px rgba(167, 139, 250, 0.15),
+                0 25px 50px rgba(5, 150, 105, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
             position: relative;
             overflow: hidden;
@@ -611,13 +612,13 @@
             right: -20%;
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 15s ease-in-out infinite;
+            animation: tropicalFloat 18s ease-in-out infinite;
         }
         
         .contact-title {
-            color: #6b46c1;
+            color: #059669;
             font-size: 26px;
             font-weight: 700;
             margin-bottom: 35px;
@@ -644,20 +645,20 @@
             backdrop-filter: blur(10px);
             border-radius: 15px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 6px 20px rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.1);
             font-size: 16px;
         }
         
         .contact-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(167, 139, 250, 0.2);
+            box-shadow: 0 12px 30px rgba(5, 150, 105, 0.2);
         }
         
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #059669, #0d9488);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -665,32 +666,32 @@
             color: white;
             font-size: 20px;
             font-weight: 600;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
         }
         
         .organization {
             text-align: center;
             margin-top: 45px;
             padding: 40px;
-            background: rgba(255, 239, 248, 0.85);
+            background: rgba(236, 253, 245, 0.85);
             backdrop-filter: blur(15px) saturate(180%);
             border-radius: 20px;
-            border: 2px solid rgba(167, 139, 250, 0.3);
+            border: 2px solid rgba(34, 197, 94, 0.3);
             box-shadow: 
-                0 20px 40px rgba(167, 139, 250, 0.15),
+                0 20px 40px rgba(5, 150, 105, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
         
         .org-title {
             font-weight: 600;
-            color: #6b46c1;
+            color: #059669;
             margin-bottom: 12px;
             font-size: 18px;
             letter-spacing: 0.5px;
         }
         
         .org-name {
-            color: #667eea;
+            color: #0d9488;
             font-weight: 700;
             font-size: 20px;
             letter-spacing: 0.5px;
@@ -707,8 +708,8 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(15px);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(5, 150, 105, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
         
         .qr-placeholder {
@@ -728,7 +729,7 @@
         
         .qr-link {
             font-size: 15px;
-            color: #6b46c1;
+            color: #059669;
             font-weight: 600;
             text-decoration: none;
         }
@@ -738,7 +739,7 @@
         }
         
         .footer {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
             color: white;
             padding: 35px;
             text-align: center;
@@ -754,9 +755,9 @@
             left: 50%;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 12s ease-in-out infinite;
+            animation: tropicalFloat 15s ease-in-out infinite;
             transform: translateX(-50%);
         }
         
@@ -764,7 +765,7 @@
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #a78bfa;
+            color: #6ee7b7;
             position: relative;
             z-index: 2;
         }
@@ -883,6 +884,133 @@
             }
         }
     </style>
+    <script>
+        // Google Sheets Integration
+        const SHEET_ID = '1b41RKRgchzt0-Ut1aO6e3xv8SLV5wkfi8sL9o3LhJGg';
+        const SHEET_NAME = 'Sheet1';
+
+        async function fetchEventData() {
+            try {
+                // For public sheets, you can use this CSV export method
+                const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+                
+                const response = await fetch(csvUrl);
+                const csvText = await response.text();
+                
+                // Parse CSV data
+                if (lines.length >= 2) {
+                    const headers = lines[0].split(',');
+                    const eventData = lines[1].split(',');
+                    
+                    // Extract data from your sheet structure
+                    const eventName = eventData[0]?.replace(/"/g, '') || 'UAV Mapping & Photogrammetry';
+                    const startDate = eventData[1]?.replace(/"/g, '') || '17-Oct-2025';
+                    const endDate = eventData[2]?.replace(/"/g, '') || '19-Oct-2025';
+                    const onlineDate = eventData[5]?.replace(/"/g, '') || 'TBA';
+                    const offlineDate = eventData[6]?.replace(/"/g, '') || '17-Oct-2025';
+                    
+                    // Update the HTML elements
+                    updateEventDisplay(eventName, startDate, endDate, onlineDate, offlineDate);
+                }
+            } catch (error) {
+                console.log('Using fallback data:', error);
+                // Fallback data if fetch fails
+                updateEventDisplay(
+                    'UAV Mapping & Photogrammetry',
+                    '17-Oct-2025',
+                    '19-Oct-2025',
+                    'TBA',
+                    '17-Oct-2025'
+                );
+            }
+        }
+
+        function updateEventDisplay(eventName, startDate, endDate, onlineDate, offlineDate) {
+            // Update main title if needed
+            const titleElement = document.querySelector('.title');
+            if (titleElement && eventName) {
+                titleElement.innerHTML = eventName.replace('&', '<br>&');
+            }
+
+            // Update date highlight
+            const dateHighlight = document.querySelector('.date-highlight');
+            if (dateHighlight) {
+                const formattedDate = formatDateRange(startDate, endDate);
+                dateHighlight.innerHTML = `
+                    ${formattedDate} (Offline)<br>
+                    <small style="font-size: 18px; font-weight: 500;">SECURE YOUR SPOT TODAY</small>
+                `;
+            }
+
+            // Update schedule dates
+            updateScheduleDates(startDate, endDate, onlineDate, offlineDate);
+        }
+
+        function formatDateRange(startDate, endDate) {
+            try {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                
+                const options = { 
+                    month: 'long', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                };
+                
+                if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
+                    return `${start.toLocaleDateString('en-US', { month: 'long' })} ${start.getDate()}-${end.getDate()}, ${start.getFullYear()}`;
+                } else {
+                    return `${start.toLocaleDateString('en-US', options)} - ${end.toLocaleDateString('en-US', options)}`;
+                }
+            } catch (error) {
+                return `${startDate} - ${endDate}`;
+            }
+        }
+
+        function updateScheduleDates(startDate, endDate, onlineDate, offlineDate) {
+            try {
+                const start = new Date(offlineDate);
+                const day2 = new Date(start);
+                day2.setDate(day2.getDate() + 1);
+                const day3 = new Date(start);
+                day3.setDate(day3.getDate() + 2);
+
+                const formatOptions = { 
+                    month: 'long', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                };
+
+                // Update Day 4 header
+                const day4Header = document.querySelector('.schedule-card:nth-child(2) .day-header');
+                if (day4Header) {
+                    day4Header.textContent = `Day 4: Intensive Workshop Launch (${start.toLocaleDateString('en-US', formatOptions)})`;
+                }
+
+                // Update Day 5 header
+                const day5Header = document.querySelector('.schedule-card:nth-child(3) .day-header');
+                if (day5Header) {
+                    day5Header.textContent = `Day 5: Practical Application Workshop (${day2.toLocaleDateString('en-US', formatOptions)})`;
+                }
+
+                // Update Day 6 header
+                const day6Header = document.querySelector('.schedule-card:nth-child(4) .day-header');
+                if (day6Header) {
+                    day6Header.textContent = `Day 6: Advanced Processing & Certification (${day3.toLocaleDateString('en-US', formatOptions)})`;
+                }
+            } catch (error) {
+                console.log('Error updating schedule dates:', error);
+            }
+        }
+
+        // Load event data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchEventData();
+            
+            // Refresh data every 5 minutes (300000 ms)
+            setInterval(fetchEventData, 300000);
+        });
+    </script>
 </head>
 <body>
     <div class="poster">
@@ -914,7 +1042,10 @@
                     <div class="learning-card">
                         <div class="card-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="7.5,9.5 12,12 16.5,9.5"/>
+                                <polyline points="7.5,14.5 12,17 16.5,14.5"/>
+                                <line x1="12" y1="12" x2="12" y2="17"/>
                             </svg>
                         </div>
                         <div class="card-title">Mission Planning & Flight Simulation</div>
@@ -923,7 +1054,10 @@
                     <div class="learning-card">
                         <div class="card-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M9 11H7l3-7 3 7h-2l2 7-4-7z"/>
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                                <path d="M8 21l4-7 4 7"/>
+                                <path d="M7 21h10"/>
                             </svg>
                         </div>
                         <div class="card-title">3D Mapping & Orthomosaics</div>
@@ -932,7 +1066,11 @@
                     <div class="learning-card">
                         <div class="card-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M20 6L9 17l-5-5"/>
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                                <path d="M7 13h4l-2-4 2-4h-4"/>
+                                <path d="M13 9h4v4h-4z"/>
                             </svg>
                         </div>
                         <div class="card-title">Advanced Software Mastery</div>
@@ -963,7 +1101,7 @@
                 <div class="highlight-content">
                     <div class="expert-text">Expert-Led Professional Training Program</div>
                     <div class="date-highlight">
-                        September 17-22, 2025<br>
+                        October 17-19, 2025<br>
                         <small style="font-size: 18px; font-weight: 500;">SECURE YOUR SPOT TODAY</small>
                     </div>
                 </div>
@@ -991,7 +1129,7 @@
                 </div>
                 
                 <div class="schedule-card">
-                    <div class="day-header">Day 4: Intensive Workshop Launch (September 17, 2025)</div>
+                    <div class="day-header">Day 4: Intensive Workshop Launch (October 17, 2025)</div>
                     <div class="day-content">
                         <div class="time-slot">
                             <div class="time">11:00 AM</div>
@@ -1017,7 +1155,7 @@
                 </div>
                 
                 <div class="schedule-card">
-                    <div class="day-header">Day 5: Practical Application Workshop (September 18, 2025)</div>
+                    <div class="day-header">Day 5: Practical Application Workshop (October 18, 2025)</div>
                     <div class="day-content">
                         <div class="time-slot">
                             <div class="time">09:00 AM</div>
@@ -1051,7 +1189,7 @@
                 </div>
                 
                 <div class="schedule-card">
-                    <div class="day-header">Day 6: Advanced Processing & Certification (September 19, 2025)</div>
+                    <div class="day-header">Day 6: Advanced Processing & Certification (October 19, 2025)</div>
                     <div class="day-content">
                         <div class="time-slot">
                             <div class="time">09:00 AM</div>
