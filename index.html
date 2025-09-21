@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAV Mapping & Photogrammetry</title>
+    <title>Aerial Insights: Unlocking UAV Photogrammetry Techniques</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -715,21 +715,19 @@
         .qr-placeholder {
             width: 130px;
             height: 130px;
-            background: linear-gradient(135deg, #0d66d1 0%, #374151 100%);
+            background: white;
             margin: 0 auto 18px;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 13px;
-            text-align: center;
-            font-weight: 600;
+            border: 2px solid #e5e7eb;
         }
 
-        .qr img {
-            width: 10 px;
-            height: 10 px;
+        .qr-placeholder img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
         }
         
         .qr-link {
@@ -903,12 +901,13 @@
                 const csvText = await response.text();
                 
                 // Parse CSV data
+                const lines = csvText.split('\n');
                 if (lines.length >= 2) {
                     const headers = lines[0].split(',');
                     const eventData = lines[1].split(',');
                     
                     // Extract data from your sheet structure
-                    const eventName = eventData[0]?.replace(/"/g, '') || 'UAV Mapping & Photogrammetry';
+                    const eventName = eventData[0]?.replace(/"/g, '') || 'Aerial Insights: Unlocking UAV Photogrammetry Techniques';
                     const startDate = eventData[1]?.replace(/"/g, '') || '17-Oct-2025';
                     const endDate = eventData[2]?.replace(/"/g, '') || '19-Oct-2025';
                     const onlineDate = eventData[5]?.replace(/"/g, '') || 'TBA';
@@ -921,7 +920,7 @@
                 console.log('Using fallback data:', error);
                 // Fallback data if fetch fails
                 updateEventDisplay(
-                    'UAV Mapping & Photogrammetry',
+                    'Aerial Insights: Unlocking UAV Photogrammetry Techniques',
                     '17-Oct-2025',
                     '19-Oct-2025',
                     'TBA',
@@ -934,7 +933,7 @@
             // Update main title if needed
             const titleElement = document.querySelector('.title');
             if (titleElement && eventName) {
-                titleElement.innerHTML = eventName.replace('&', '<br>&');
+                titleElement.innerHTML = 'Aerial Insights:<br>Unlocking UAV Photogrammetry Techniques';
             }
 
             // Update date highlight
@@ -1028,8 +1027,8 @@
                         </div>
                     </div>
                     <div class="title-section">
-                        <div class="title">UAV Mapping<br>& Photogrammetry</div>
-                        <div class="subtitle">Professional Certification Workshop</div>
+                        <div class="title">Aerial Insights:<br>Unlocking UAV Photogrammetry Techniques</div>
+                        <div class="subtitle">UAV Remote Sensing Image Processing</div>
                     </div>
                 </div>
                 <div class="right-header">
@@ -1239,6 +1238,7 @@
             <div class="note-section">
                 <div class="note-title">Important Program Information:</div>
                 <div class="note-text">
+                    • Food and accommodation inclusive in the fee for workshop days<br>
                     • Welcome breakfast on inaugural day available on request (additional payment basis)<br>
                     • *Professional UAV flight exercises conducted after successful simulator completion<br>
                     • All scheduled meals included during workshop days unless otherwise specified<br>
@@ -1279,8 +1279,7 @@
             <div class="qr-section">
                 <div class="qr-container">
                     <div class="qr-placeholder">
-                        <div class="qr">
-                            <img src="Courses.png" alt="Scan to Register" />
+                        <img src="Courses.png" alt="Scan to Register" />
                     </div>
                     <a href="https://forms.gle/CfQ79dXcanBJbVco9" class="qr-link">Click here to Register</a>
                 </div>
